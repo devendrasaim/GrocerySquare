@@ -62,7 +62,7 @@ export function SearchCombobox({
         .gt('stock_quantity', 0)
         .limit(6)
 
-      setResults(data || [])
+      setResults((data as unknown as Product[]) || [])
       setIsOpen(true)
       setIsLoading(false)
     }, 300)
