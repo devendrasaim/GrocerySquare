@@ -11,6 +11,7 @@ import { Providers } from '@/components/providers'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { mockDepartments } from '@/lib/mock-data'
+import { getAssetUrl } from '@/lib/utils'
 import type { Product } from '@/lib/types'
 
 export const dynamic = 'force-static'
@@ -62,7 +63,7 @@ export async function generateMetadata({ params }: ProductPageProps) {
     openGraph: {
       title: product.name,
       description: product.description || `Buy ${product.name} at Grocery Square`,
-      images: product.image_url ? [product.image_url] : [],
+      images: product.image_url ? [getAssetUrl(product.image_url)] : [],
     },
   }
 }
@@ -118,14 +119,14 @@ export default async function ProductPage({ params }: ProductPageProps) {
               {/* Product Image */}
               <div className="space-y-4">
                 <div className="relative aspect-square overflow-hidden rounded-lg bg-muted">
-                  {product.image_url ? (
-                    <Image
-                      src={product.image_url}
-                      alt={product.name}
-                      fill
-                      className="object-cover"
-                      priority
-                    />
+                    {product.image_url ? (
+                      <Image
+                        src={getAssetUrl(product.image_url)}
+                        alt={product.name}
+                        fill
+                        className="object-cover"
+                        priority
+                      />
                   ) : (
                     <div className="h-full w-full flex items-center justify-center text-muted-foreground">
                       No image available

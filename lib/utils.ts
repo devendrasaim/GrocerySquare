@@ -13,11 +13,19 @@ export function getAssetUrl(path: string | null | undefined): string {
   // If it's already a full URL, return it
   if (path.startsWith('http') || path.startsWith('https')) return path
   
+  // Map legacy /products/ to /images/products/
+  let mappedPath = path
+  if (mappedPath.startsWith('/products/')) {
+    mappedPath = mappedPath.replace('/products/', '/images/products/')
+  } else if (mappedPath === '/logo.png') {
+    mappedPath = '/images/logo.png'
+  }
+  
   // In production (GitHub Pages), we need to prefix with /GrocerySquare
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
   
   // Ensure we don't double-prefix and the path starts with /
-  const cleanPath = path.startsWith('/') ? path : `/${path}`
+  const cleanPath = mappedPath.startsWith('/') ? mappedPath : `/${mappedPath}`
   
   if (basePath && !cleanPath.startsWith(basePath)) {
     return `${basePath}${cleanPath}`
