@@ -21,7 +21,20 @@ export function getAssetUrl(path: string | null | undefined): string {
     mappedPath = '/images/logo.png'
   }
   
+  // In production (GitHub Pages), we need to prefix with /GrocerySquare
+  const isProd = process.env.NODE_ENV === 'production' || (typeof window !== 'undefined' && window.location.hostname.includes('github.io'))
+  const basePath = '/GrocerySquare'
+  
   // Ensure the path starts with /
-  // Next.js basePath handles the prefixing for next/image and next/link
-  return mappedPath.startsWith('/') ? mappedPath : `/${mappedPath}`
+  let finalPath = mappedPath.startsWith('/') ? mappedPath : `/${mappedPath}`
+  
+  if (isProd) {
+    // Check if it already starts with the version-agnostic prefix
+    // OR if it's already a full URL (though that's handled above)
+    if (!finalPath.startsWith(basePath)) {
+      finalPath = `${basePath}${finalPath}`
+    }
+  }
+  
+  return finalPath
 }

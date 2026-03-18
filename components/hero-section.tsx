@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { ChevronLeft, ChevronRight, Truck, Clock, Percent, Shield } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { getAssetUrl } from '@/lib/utils'
 
 const SLIDES = [
   {
@@ -95,7 +96,7 @@ export function HeroSection() {
               {slide.image && (
                 <div className="absolute inset-0 z-0">
                   <Image
-                    src={slide.image}
+                    src={getAssetUrl(slide.image)}
                     alt={slide.title}
                     fill
                     className="object-cover"
