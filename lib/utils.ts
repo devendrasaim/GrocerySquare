@@ -21,17 +21,7 @@ export function getAssetUrl(path: string | null | undefined): string {
     mappedPath = '/images/logo.png'
   }
   
-  // In production (GitHub Pages), we need to prefix with /GrocerySquare
-  // Hardcoding for this project to ensure reliability on GH Pages
-  const isProd = process.env.NODE_ENV === 'production'
-  const basePath = isProd ? '/GrocerySquare' : ''
-  
-  // Ensure we don't double-prefix and the path starts with /
-  const cleanPath = mappedPath.startsWith('/') ? mappedPath : `/${mappedPath}`
-  
-  if (basePath && !cleanPath.startsWith(basePath)) {
-    return `${basePath}${cleanPath}`
-  }
-  
-  return cleanPath
+  // Ensure the path starts with /
+  // Next.js basePath handles the prefixing for next/image and next/link
+  return mappedPath.startsWith('/') ? mappedPath : `/${mappedPath}`
 }
