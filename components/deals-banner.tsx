@@ -2,6 +2,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Tag, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { getAssetUrl } from '@/lib/utils'
 
 export function DealsBanner() {
   return (
@@ -11,7 +12,7 @@ export function DealsBanner() {
           {/* Background Image Placeholder */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/images/banners/flash-sale.jpg"
+              src={getAssetUrl('/images/banners/flash-sale.jpg')}
               alt="Flash Sale"
               fill
               className="object-cover transition-transform duration-700 group-hover:scale-105"

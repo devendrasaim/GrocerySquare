@@ -3,6 +3,7 @@ import Image from 'next/image'
 import { Facebook, Twitter, Instagram, Youtube, MapPin, Phone, Mail } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
+import { getAssetUrl } from '@/lib/utils'
 
 const FOOTER_LINKS = {
   shop: [
@@ -65,7 +66,7 @@ export function Footer() {
           <div className="col-span-2 md:col-span-3 lg:col-span-2">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Image
-                src="/images/logo.png"
+                src={getAssetUrl('/images/logo.png')}
                 alt="Grocery Square"
                 width={50}
                 height={50}
