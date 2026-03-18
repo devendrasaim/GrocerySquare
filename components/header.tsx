@@ -17,6 +17,7 @@ import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { SearchCombobox } from '@/components/search-combobox'
 import { CartDrawer } from '@/components/cart-drawer'
 import { createClient } from '@/lib/supabase/client'
+import { getAssetUrl } from '@/lib/utils'
 import type { Category } from '@/lib/types'
 import type { User as SupabaseUser } from '@supabase/supabase-js'
 
@@ -139,7 +140,7 @@ export function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-1.5 shrink-0 group">
             <Image
-              src="/images/logo.png"
+              src={getAssetUrl('/logo.png')}
               alt="Grocery Square"
               width={50}
               height={50}

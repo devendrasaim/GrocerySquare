@@ -9,7 +9,7 @@ import { Badge } from '@/components/ui/badge'
 import { useCart } from '@/lib/cart-context'
 import { useWishlist } from '@/lib/wishlist-context'
 import { motion, AnimatePresence } from 'framer-motion'
-import { cn } from '@/lib/utils'
+import { cn, getAssetUrl } from '@/lib/utils'
 import type { Product } from '@/lib/types'
 
 interface ProductCardProps {
@@ -116,7 +116,7 @@ export function ProductCard({ product, showAddToCart = true }: ProductCardProps)
         {/* Image */}
         <div className="aspect-square overflow-hidden bg-muted">
           <Image
-            src={product.image_url || `/products/${product.slug}.png`}
+            src={getAssetUrl(product.image_url || `/products/${product.slug}.png`)}
             alt={product.name}
             width={300}
             height={300}

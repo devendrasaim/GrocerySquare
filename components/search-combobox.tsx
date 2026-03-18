@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { Search, X, ArrowRight } from 'lucide-react'
 import { Input } from '@/components/ui/input'
 import { createClient } from '@/lib/supabase/client'
-import { cn } from '@/lib/utils'
+import { cn, getAssetUrl } from '@/lib/utils'
 import type { Product } from '@/lib/types'
 
 const POPULAR_SEARCHES = ['Milk', 'Eggs', 'Chicken', 'Rice', 'Bananas', 'Bread']
@@ -138,7 +138,7 @@ export function SearchCombobox({
                     <div className="w-10 h-10 rounded-lg bg-muted overflow-hidden shrink-0 border border-border/50">
                       {product.image_url && (
                         <Image
-                          src={product.image_url}
+                          src={getAssetUrl(product.image_url)}
                           alt={product.name}
                           width={40}
                           height={40}
