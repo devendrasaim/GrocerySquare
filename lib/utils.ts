@@ -22,7 +22,9 @@ export function getAssetUrl(path: string | null | undefined): string {
   }
   
   // In production (GitHub Pages), we need to prefix with /GrocerySquare
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
+  // Hardcoding for this project to ensure reliability on GH Pages
+  const isProd = process.env.NODE_ENV === 'production'
+  const basePath = isProd ? '/GrocerySquare' : ''
   
   // Ensure we don't double-prefix and the path starts with /
   const cleanPath = mappedPath.startsWith('/') ? mappedPath : `/${mappedPath}`
