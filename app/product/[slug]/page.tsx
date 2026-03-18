@@ -10,10 +10,22 @@ import { AddToCartButton } from '@/components/add-to-cart-button'
 import { Providers } from '@/components/providers'
 import { Badge } from '@/components/ui/badge'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import { mockDepartments } from '@/lib/mock-data'
 import type { Product } from '@/lib/types'
+
+export const dynamic = 'force-static'
+export const dynamicParams = false
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>
+}
+
+export async function generateStaticParams() {
+  // Pre-generate product pages based on mock data for static export
+  const allProducts = Object.values(mockDepartments).flatMap(dept => dept.products);
+  return allProducts.map((product) => ({
+    slug: product.slug,
+  }));
 }
 
 async function getProduct(slug: string): Promise<Product | null> {

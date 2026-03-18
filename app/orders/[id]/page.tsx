@@ -12,9 +12,16 @@ import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import type { Order, OrderItem } from '@/lib/types'
 
+export const dynamic = 'force-static'
+export const dynamicParams = false
+
 interface OrderDetailPageProps {
   params: Promise<{ id: string }>
   searchParams: Promise<{ success?: string }>
+}
+
+export async function generateStaticParams() {
+  return [{ id: '00000000-0000-0000-0000-000000000000' }];
 }
 
 const STATUS_COLORS: Record<string, string> = {

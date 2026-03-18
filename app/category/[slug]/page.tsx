@@ -11,9 +11,18 @@ import { DepartmentHeader } from '@/components/department-header'
 import { mockDepartments } from '@/lib/mock-data'
 import type { Category, Product } from '@/lib/types'
 
+export const dynamic = 'force-static'
+export const dynamicParams = false
+
 interface CategoryPageProps {
   params: Promise<{ slug: string }>
   searchParams: Promise<{ sort?: string; organic?: string; minPrice?: string; maxPrice?: string }>
+}
+
+export async function generateStaticParams() {
+  // Pre-generate the most popular categories for static export
+  const categories = ['fresh-produce', 'dairy-eggs', 'bakery', 'meat-seafood', 'south-asian', 'beverages', 'snacks', 'frozen-foods'];
+  return categories.map((slug) => ({ slug }));
 }
 
 async function getCategory(slug: string): Promise<Category | null> {

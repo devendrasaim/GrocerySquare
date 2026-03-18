@@ -7,6 +7,8 @@ import { ProductCard } from '@/components/product-card'
 import { Providers } from '@/components/providers'
 import type { Product } from '@/lib/types'
 
+export const dynamic = 'force-static'
+
 interface SearchPageProps {
   searchParams: Promise<{ q?: string }>
 }

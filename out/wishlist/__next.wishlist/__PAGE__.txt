@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+3:I[97367,["/GrocerySquare/_next/static/chunks/ff1a16fafef87110.js","/GrocerySquare/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"uGLI9jI89iBqTwSk7KM5H","rsc":["$","$1","c",{"children":["$L2",[["$","script","script-0",{"src":"/GrocerySquare/_next/static/chunks/fe07fe6bf349e8fa.js","async":true}],["$","script","script-1",{"src":"/GrocerySquare/_next/static/chunks/2f7ddb25ce218bad.js","async":true}],["$","script","script-2",{"src":"/GrocerySquare/_next/static/chunks/7d1eb202c07102a7.js","async":true}],["$","script","script-3",{"src":"/GrocerySquare/_next/static/chunks/d7cd68152e8adfb3.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+5:null
+2:E{"digest":"NEXT_REDIRECT;replace;/auth/login?redirect=/wishlist;307;"}
