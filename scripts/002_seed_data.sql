@@ -22,39 +22,40 @@ ON CONFLICT DO NOTHING;
 
 -- Seed products (Fresh Produce)
 INSERT INTO products (name, slug, description, price, sale_price, image_url, category_id, brand, unit, stock_quantity, is_featured, is_on_sale, is_organic, rating, review_count) VALUES
-  ('Organic Bananas', 'organic-bananas', 'Fresh organic bananas, perfect for snacking or smoothies', 0.69, NULL, '/products/organic-bananas.png', (SELECT id FROM categories WHERE slug = 'fresh-produce'), 'Organic Valley', 'lb', 150, true, false, true, 4.8, 234),
-  ('Red Apples', 'red-apples', 'Crisp and sweet red delicious apples', 1.99, 1.49, '/products/red-apples.png', (SELECT id FROM categories WHERE slug = 'fresh-produce'), 'Local Farm', 'lb', 200, true, true, false, 4.5, 189),
-  ('Fresh Spinach', 'fresh-spinach', 'Baby spinach leaves, pre-washed and ready to eat', 3.99, NULL, '/products/fresh-spinach.png', (SELECT id FROM categories WHERE slug = 'fresh-produce'), 'Fresh Express', 'bag', 75, false, false, true, 4.6, 156),
-  ('Avocados', 'avocados', 'Ripe Hass avocados from Mexico', 1.29, NULL, '/products/avocados.png', (SELECT id FROM categories WHERE slug = 'fresh-produce'), 'Mission', 'each', 120, true, false, false, 4.7, 312),
-  ('Fresh Cilantro', 'fresh-cilantro', 'Aromatic cilantro bunch for authentic cooking', 0.99, NULL, '/products/fresh-cilantro.png', (SELECT id FROM categories WHERE slug = 'fresh-produce'), 'Local Farm', 'bunch', 80, false, false, false, 4.4, 98),
-  ('Tomatoes on the Vine', 'vine-tomatoes', 'Juicy vine-ripened tomatoes', 2.99, 2.49, '/products/vine-tomatoes.png', (SELECT id FROM categories WHERE slug = 'fresh-produce'), 'Sunset', 'lb', 100, false, true, false, 4.3, 145)
+  ('Organic Bananas', 'organic-bananas', 'Fresh organic bananas, perfect for snacking or smoothies', 0.69, NULL, '/images/products/organic-bananas.png', (SELECT id FROM categories WHERE slug = 'fresh-produce'), 'Organic Valley', 'lb', 150, true, false, true, 4.8, 234),
+  ('Red Apples', 'red-apples', 'Crisp and sweet red delicious apples', 1.99, 1.49, '/images/products/red-apples.png', (SELECT id FROM categories WHERE slug = 'fresh-produce'), 'Local Farm', 'lb', 200, true, true, false, 4.5, 189),
+  ('Fresh Spinach', 'fresh-spinach', 'Baby spinach leaves, pre-washed and ready to eat', 3.99, NULL, '/images/products/fresh-spinach.png', (SELECT id FROM categories WHERE slug = 'fresh-produce'), 'Fresh Express', 'bag', 75, false, false, true, 4.6, 156),
+  ('Avocados', 'avocados', 'Ripe Hass avocados from Mexico', 1.29, NULL, '/images/products/avocados.png', (SELECT id FROM categories WHERE slug = 'fresh-produce'), 'Mission', 'each', 120, true, false, false, 4.7, 312),
+  ('Fresh Cilantro', 'fresh-cilantro', 'Aromatic cilantro bunch for authentic cooking', 0.99, NULL, '/images/products/fresh-cilantro.png', (SELECT id FROM categories WHERE slug = 'fresh-produce'), 'Local Farm', 'bunch', 80, false, false, false, 4.4, 98),
+  ('Tomatoes on the Vine', 'vine-tomatoes', 'Juicy vine-ripened tomatoes', 2.99, 2.49, '/images/products/vine-tomatoes.png', (SELECT id FROM categories WHERE slug = 'fresh-produce'), 'Sunset', 'lb', 100, false, true, false, 4.3, 145)
 ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url;
 
 -- Seed products (Dairy & Eggs)
 INSERT INTO products (name, slug, description, price, sale_price, image_url, category_id, brand, unit, stock_quantity, is_featured, is_on_sale, rating, review_count) VALUES
-  ('Whole Milk', 'whole-milk-gallon', 'Fresh whole milk, vitamin D fortified', 4.29, NULL, '/products/whole-milk-gallon.png', (SELECT id FROM categories WHERE slug = 'dairy-eggs'), 'Horizon', 'gallon', 60, true, false, 4.7, 423),
-  ('Large Eggs', 'large-eggs-dozen', 'Grade A large eggs, farm fresh', 3.99, 2.99, '/products/large-eggs-dozen.png', (SELECT id FROM categories WHERE slug = 'dairy-eggs'), 'Egglands Best', 'dozen', 100, true, true, 4.8, 567),
-  ('Greek Yogurt', 'greek-yogurt-plain', 'Creamy plain Greek yogurt, high protein', 5.49, NULL, '/products/greek-yogurt.png', (SELECT id FROM categories WHERE slug = 'dairy-eggs'), 'Chobani', '32oz', 45, false, false, 4.6, 289),
-  ('Shredded Cheddar', 'shredded-cheddar', 'Sharp cheddar cheese, shredded', 4.49, NULL, '/products/shredded-cheddar.png', (SELECT id FROM categories WHERE slug = 'dairy-eggs'), 'Tillamook', '8oz', 55, false, false, 4.5, 178),
-  ('Butter Unsalted', 'butter-unsalted', 'Premium unsalted butter for cooking and baking', 5.99, 4.99, '/products/butter-unsalted.png', (SELECT id FROM categories WHERE slug = 'dairy-eggs'), 'Kerrygold', '8oz', 70, false, true, 4.9, 345)
+  ('Whole Milk', 'whole-milk-gallon', 'Fresh whole milk, vitamin D fortified', 4.29, NULL, '/images/products/whole-milk-gallon.png', (SELECT id FROM categories WHERE slug = 'dairy-eggs'), 'Horizon', 'gallon', 60, true, false, 4.7, 423),
+  ('Large Eggs', 'large-eggs-dozen', 'Grade A large eggs, farm fresh', 3.99, 2.99, '/images/products/large-eggs-dozen.png', (SELECT id FROM categories WHERE slug = 'dairy-eggs'), 'Egglands Best', 'dozen', 100, true, true, 4.8, 567),
+  ('Greek Yogurt', 'greek-yogurt-plain', 'Creamy plain Greek yogurt, high protein', 5.49, NULL, '/images/products/greek-yogurt-plain.png', (SELECT id FROM categories WHERE slug = 'dairy-eggs'), 'Chobani', '32oz', 45, false, false, 4.6, 289),
+  ('Shredded Cheddar', 'shredded-cheddar', 'Sharp cheddar cheese, shredded', 4.49, NULL, '/images/products/shredded-cheddar.png', (SELECT id FROM categories WHERE slug = 'dairy-eggs'), 'Tillamook', '8oz', 55, false, false, 4.5, 178),
+  ('Butter Unsalted', 'butter-unsalted', 'Premium unsalted butter for cooking and baking', 5.99, 4.99, '/images/products/butter-unsalted.png', (SELECT id FROM categories WHERE slug = 'dairy-eggs'), 'Kerrygold', '8oz', 70, false, true, 4.9, 345)
 ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url;
 
 -- Seed products (Pantry Staples)
 INSERT INTO products (name, slug, description, price, sale_price, image_url, category_id, brand, unit, stock_quantity, is_featured, is_on_sale, rating, review_count) VALUES
-  ('Basmati Rice', 'basmati-rice-10lb', 'Premium aged basmati rice, extra long grain', 15.99, 12.99, '/products/basmati-rice.png', (SELECT id FROM categories WHERE slug = 'pantry-staples'), 'Tilda', '10 lb', 80, true, true, 4.8, 567),
-  ('Extra Virgin Olive Oil', 'olive-oil-evoo', 'Cold pressed extra virgin olive oil', 12.99, NULL, '/products/olive-oil.png', (SELECT id FROM categories WHERE slug = 'pantry-staples'), 'Pompeian', '24oz', 65, true, false, 4.7, 234),
-  ('All-Purpose Flour', 'all-purpose-flour', 'Enriched bleached all-purpose flour', 4.99, NULL, '/products/all-purpose-flour.png', (SELECT id FROM categories WHERE slug = 'pantry-staples'), 'King Arthur', '5 lb', 90, false, false, 4.6, 198),
-  ('Chickpeas', 'chickpeas-canned', 'Organic garbanzo beans, ready to use', 1.99, NULL, '/products/chickpeas.png', (SELECT id FROM categories WHERE slug = 'pantry-staples'), 'Goya', '15oz', 120, false, false, 4.4, 145),
-  ('Coconut Milk', 'coconut-milk', 'Full fat coconut milk for cooking', 2.49, NULL, '/products/coconut-milk.png', (SELECT id FROM categories WHERE slug = 'pantry-staples'), 'Thai Kitchen', '13.66oz', 85, false, false, 4.5, 167)
+  ('Basmati Rice', 'basmati-rice-10lb', 'Premium aged basmati rice, extra long grain', 15.99, 12.99, '/images/products/basmati-rice-5kg.png', (SELECT id FROM categories WHERE slug = 'pantry-staples'), 'Tilda', '10 lb', 80, true, true, 4.8, 567),
+  ('Extra Virgin Olive Oil', 'olive-oil-evoo', 'Cold pressed extra virgin olive oil', 12.99, NULL, '/images/products/olive-oil.png', (SELECT id FROM categories WHERE slug = 'pantry-staples'), 'Pompeian', '24oz', 65, true, false, 4.7, 234),
+  ('All-Purpose Flour', 'all-purpose-flour', 'Enriched bleached all-purpose flour', 4.99, NULL, '/images/products/all-purpose-flour.png', (SELECT id FROM categories WHERE slug = 'pantry-staples'), 'King Arthur', '5 lb', 90, false, false, 4.6, 198),
+  ('Chickpeas', 'chickpeas-canned', 'Organic garbanzo beans, ready to use', 1.99, NULL, '/images/products/chickpeas.png', (SELECT id FROM categories WHERE slug = 'pantry-staples'), 'Goya', '15oz', 120, false, false, 4.4, 145),
+  ('Coconut Milk', 'coconut-milk', 'Full fat coconut milk for cooking', 2.49, NULL, '/images/products/coconut-milk.png', (SELECT id FROM categories WHERE slug = 'pantry-staples'), 'Thai Kitchen', '13.66oz', 85, false, false, 4.5, 167)
 ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url;
 
 -- Seed products (South Asian Specialties)
 INSERT INTO products (name, slug, description, price, sale_price, image_url, category_id, brand, unit, stock_quantity, is_featured, is_on_sale, is_south_asian, rating, review_count) VALUES
-  ('Toor Dal', 'toor-dal', 'Split pigeon peas, essential for sambar and dal', 6.99, 5.49, '/products/toor-dal.png', (SELECT id FROM categories WHERE slug = 'south-asian'), 'Deep', '2 lb', 60, true, true, true, 4.7, 234),
-  ('Garam Masala', 'garam-masala', 'Authentic blend of aromatic spices', 4.99, NULL, '/products/garam-masala.png', (SELECT id FROM categories WHERE slug = 'south-asian'), 'MDH', '100g', 75, true, false, true, 4.8, 312),
-  ('Ghee', 'pure-ghee', 'Pure clarified butter, traditional recipe', 12.99, NULL, '/products/ghee.png', (SELECT id FROM categories WHERE slug = 'south-asian'), 'Amul', '16oz', 50, true, false, true, 4.9, 456),
-  ('Paneer', 'fresh-paneer', 'Fresh Indian cottage cheese', 5.99, NULL, '/products/fresh-paneer.png', (SELECT id FROM categories WHERE slug = 'south-asian'), 'Nanak', '12oz', 40, false, false, true, 4.6, 189),
-  ('Atta Flour', 'atta-whole-wheat', 'Whole wheat flour for chapati and roti', 8.99, 7.49, '/products/atta-flour.png', (SELECT id FROM categories WHERE slug = 'south-asian'), 'Sujata', '10 lb', 55, false, true, true, 4.7, 278),
+  ('Toor Dal', 'toor-dal', 'Split pigeon peas, essential for sambar and dal', 6.99, 5.49, '/images/products/toor-dal.png', (SELECT id FROM categories WHERE slug = 'south-asian'), 'Deep', '2 lb', 60, true, true, true, 4.7, 234),
+  ('Garam Masala', 'garam-masala', 'Authentic blend of aromatic spices', 4.99, NULL, '/images/products/garam-masala.png', (SELECT id FROM categories WHERE slug = 'south-asian'), 'MDH', '100g', 75, true, false, true, 4.8, 312),
+  ('Ghee', 'pure-ghee', 'Pure clarified butter, traditional recipe', 12.99, NULL, '/images/products/pure-ghee.png', (SELECT id FROM categories WHERE slug = 'south-asian'), 'Amul', '16oz', 50, true, false, true, 4.9, 456),
+  ('Paneer', 'fresh-paneer', 'Fresh Indian cottage cheese', 5.99, NULL, '/images/products/fresh-paneer.png', (SELECT id FROM categories WHERE slug = 'south-asian'), 'Nanak', '12oz', 40, false, false, true, 4.6, 189),
+  ('Atta Flour', 'atta-whole-wheat', 'Whole wheat flour for chapati and roti', 8.99, 7.49, '/images/products/atta-whole-wheat.png', (SELECT id FROM categories WHERE slug = 'south-asian'), 'Sujata', '10 lb', 55, false, true, true, 4.7, 278)
+,
   ('Mango Pickle', 'mango-pickle', 'Traditional spicy mango pickle', 4.49, NULL, NULL, (SELECT id FROM categories WHERE slug = 'south-asian'), 'Priya', '300g', 65, false, false, true, 4.5, 167),
   ('Masala Chai', 'masala-chai-tea', 'Premium spiced tea blend', 6.99, NULL, NULL, (SELECT id FROM categories WHERE slug = 'south-asian'), 'Wagh Bakri', '250g', 70, false, false, true, 4.8, 234),
   ('Cumin Seeds', 'cumin-seeds', 'Whole cumin seeds for tempering', 3.99, NULL, NULL, (SELECT id FROM categories WHERE slug = 'south-asian'), 'Swad', '200g', 80, false, false, true, 4.6, 145)
@@ -62,7 +63,7 @@ ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url;
 
 -- Seed products (Café n Curry - Ready meals)
 INSERT INTO products (name, slug, description, price, sale_price, image_url, category_id, brand, unit, stock_quantity, is_featured, is_on_sale, is_south_asian, rating, review_count) VALUES
-  ('Chicken Biryani', 'chicken-biryani', 'Aromatic basmati rice with tender chicken and spices', 12.99, NULL, '/products/chicken-biryani.png', (SELECT id FROM categories WHERE slug = 'cafe-curry'), 'Café n Curry', 'serving', 25, true, false, true, 4.9, 456),
+  ('Chicken Biryani', 'chicken-biryani', 'Aromatic basmati rice with tender chicken and spices', 12.99, NULL, '/images/products/chicken-biryani.png', (SELECT id FROM categories WHERE slug = 'cafe-curry'), 'Café n Curry', 'serving', 25, true, false, true, 4.9, 456),
   ('Butter Chicken', 'butter-chicken', 'Creamy tomato-based curry with tender chicken', 11.99, NULL, NULL, (SELECT id FROM categories WHERE slug = 'cafe-curry'), 'Café n Curry', 'serving', 30, true, false, true, 4.8, 389),
   ('Vegetable Samosas', 'vegetable-samosas', 'Crispy pastry filled with spiced potatoes and peas', 5.99, 4.99, NULL, (SELECT id FROM categories WHERE slug = 'cafe-curry'), 'Café n Curry', '4 pcs', 40, false, true, true, 4.7, 267),
   ('Dal Makhani', 'dal-makhani', 'Creamy black lentils slow-cooked overnight', 9.99, NULL, NULL, (SELECT id FROM categories WHERE slug = 'cafe-curry'), 'Café n Curry', 'serving', 20, false, false, true, 4.8, 198),
@@ -87,8 +88,8 @@ ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url, price = EXCLUDE
 
 -- Seed products (Meat & Seafood)
 INSERT INTO products (name, slug, description, price, sale_price, image_url, category_id, brand, unit, stock_quantity, is_featured, is_on_sale, rating, review_count) VALUES
-  ('Chicken Breast', 'chicken-breast-boneless', 'Boneless skinless chicken breast', 8.99, 6.99, '/products/chicken_breast.png', (SELECT id FROM categories WHERE slug = 'meat-seafood'), 'Perdue', 'lb', 50, true, true, 4.6, 234),
+  ('Chicken Breast', 'chicken-breast-boneless', 'Boneless skinless chicken breast', 8.99, 6.99, '/images/products/chicken-breast-boneless.png', (SELECT id FROM categories WHERE slug = 'meat-seafood'), 'Perdue', 'lb', 50, true, true, 4.6, 234),
   ('Ground Beef', 'ground-beef-80-20', '80/20 ground beef, fresh', 6.99, NULL, NULL, (SELECT id FROM categories WHERE slug = 'meat-seafood'), 'Angus', 'lb', 40, false, false, 4.5, 178),
-  ('Atlantic Salmon', 'atlantic-salmon-fillet', 'Fresh Atlantic salmon fillet', 12.99, NULL, '/products/atlantic-salmon-fillet.png', (SELECT id FROM categories WHERE slug = 'meat-seafood'), 'Fresh Catch', 'lb', 25, true, false, 4.8, 156),
+  ('Atlantic Salmon', 'atlantic-salmon-fillet', 'Fresh Atlantic salmon fillet', 12.99, NULL, '/images/products/atlantic-salmon-fillet.png', (SELECT id FROM categories WHERE slug = 'meat-seafood'), 'Fresh Catch', 'lb', 25, true, false, 4.8, 156),
   ('Halal Goat', 'halal-goat-meat', 'Halal certified goat meat, bone-in', 9.99, NULL, NULL, (SELECT id FROM categories WHERE slug = 'meat-seafood'), 'Halal Fresh', 'lb', 30, false, false, 4.7, 89)
 ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url;

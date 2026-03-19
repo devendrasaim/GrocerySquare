@@ -10,7 +10,7 @@ const mkProduct = (
   organic: boolean, southAsian: boolean, snap: boolean, rating: number, reviews: number,
   imageUrl?: string | null
 ): Product => ({
-  id, name, slug, description: null, price, sale_price: salePrice, image_url: imageUrl || `/products/${slug}.png`,
+  id, name, slug, description: null, price, sale_price: salePrice, image_url: imageUrl || `/images/products/${slug}.png`,
   category_id: categoryId, brand: null, stock_quantity: qty, unit, is_featured: featured,
   is_on_sale: onSale, is_organic: organic, is_south_asian: southAsian, is_snap_eligible: snap,
   rating, review_count: reviews, created_at: '', updated_at: '',
