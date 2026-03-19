@@ -55,27 +55,16 @@ INSERT INTO products (name, slug, description, price, sale_price, image_url, cat
   ('Ghee', 'pure-ghee', 'Pure clarified butter, traditional recipe', 12.99, NULL, '/images/products/pure-ghee.png', (SELECT id FROM categories WHERE slug = 'south-asian'), 'Amul', '16oz', 50, true, false, true, 4.9, 456),
   ('Paneer', 'fresh-paneer', 'Fresh Indian cottage cheese', 5.99, NULL, '/images/products/fresh-paneer.png', (SELECT id FROM categories WHERE slug = 'south-asian'), 'Nanak', '12oz', 40, false, false, true, 4.6, 189),
   ('Atta Flour', 'atta-whole-wheat', 'Whole wheat flour for chapati and roti', 8.99, 7.49, '/images/products/atta-whole-wheat.png', (SELECT id FROM categories WHERE slug = 'south-asian'), 'Sujata', '10 lb', 55, false, true, true, 4.7, 278)
-,
-  ('Mango Pickle', 'mango-pickle', 'Traditional spicy mango pickle', 4.49, NULL, NULL, (SELECT id FROM categories WHERE slug = 'south-asian'), 'Priya', '300g', 65, false, false, true, 4.5, 167),
-  ('Masala Chai', 'masala-chai-tea', 'Premium spiced tea blend', 6.99, NULL, NULL, (SELECT id FROM categories WHERE slug = 'south-asian'), 'Wagh Bakri', '250g', 70, false, false, true, 4.8, 234),
-  ('Cumin Seeds', 'cumin-seeds', 'Whole cumin seeds for tempering', 3.99, NULL, NULL, (SELECT id FROM categories WHERE slug = 'south-asian'), 'Swad', '200g', 80, false, false, true, 4.6, 145)
 ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url;
 
 -- Seed products (Café n Curry - Ready meals)
 INSERT INTO products (name, slug, description, price, sale_price, image_url, category_id, brand, unit, stock_quantity, is_featured, is_on_sale, is_south_asian, rating, review_count) VALUES
-  ('Chicken Biryani', 'chicken-biryani', 'Aromatic basmati rice with tender chicken and spices', 12.99, NULL, '/images/products/chicken-biryani.png', (SELECT id FROM categories WHERE slug = 'cafe-curry'), 'Café n Curry', 'serving', 25, true, false, true, 4.9, 456),
-  ('Butter Chicken', 'butter-chicken', 'Creamy tomato-based curry with tender chicken', 11.99, NULL, NULL, (SELECT id FROM categories WHERE slug = 'cafe-curry'), 'Café n Curry', 'serving', 30, true, false, true, 4.8, 389),
-  ('Vegetable Samosas', 'vegetable-samosas', 'Crispy pastry filled with spiced potatoes and peas', 5.99, 4.99, NULL, (SELECT id FROM categories WHERE slug = 'cafe-curry'), 'Café n Curry', '4 pcs', 40, false, true, true, 4.7, 267),
-  ('Dal Makhani', 'dal-makhani', 'Creamy black lentils slow-cooked overnight', 9.99, NULL, NULL, (SELECT id FROM categories WHERE slug = 'cafe-curry'), 'Café n Curry', 'serving', 20, false, false, true, 4.8, 198),
-  ('Garlic Naan', 'garlic-naan', 'Soft leavened bread with garlic and butter', 2.99, NULL, NULL, (SELECT id FROM categories WHERE slug = 'cafe-curry'), 'Café n Curry', 'piece', 50, false, false, true, 4.6, 312)
+  ('Chicken Biryani', 'chicken-biryani', 'Aromatic basmati rice with tender chicken and spices', 12.99, NULL, '/images/products/chicken-biryani.png', (SELECT id FROM categories WHERE slug = 'cafe-curry'), 'Café n Curry', 'serving', 25, true, false, true, 4.9, 456)
 ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url;
 
 -- Seed products (Beverages)
 INSERT INTO products (name, slug, description, price, sale_price, image_url, category_id, brand, unit, stock_quantity, is_featured, is_on_sale, rating, review_count) VALUES
-  ('Spring Water', 'spring-water-24pk', 'Natural spring water, 24 pack', 4.99, 3.99, NULL, (SELECT id FROM categories WHERE slug = 'beverages'), 'Poland Spring', '24 x 16.9oz', 100, true, true, 4.5, 234),
-  ('Orange Juice', 'orange-juice-fresh', 'Fresh squeezed orange juice, no pulp', 6.99, NULL, NULL, (SELECT id FROM categories WHERE slug = 'beverages'), 'Tropicana', '52oz', 45, false, false, 4.7, 178),
-  ('Mango Lassi', 'mango-lassi', 'Creamy yogurt drink with mango', 3.49, NULL, '/products/mango-lassi.png', (SELECT id FROM categories WHERE slug = 'beverages'), 'Deep', '16oz', 35, false, false, 4.8, 145),
-  ('Cold Brew Coffee', 'cold-brew-coffee', 'Smooth cold brew coffee, ready to drink', 4.49, NULL, NULL, (SELECT id FROM categories WHERE slug = 'beverages'), 'Stumptown', '10.5oz', 40, false, false, 4.6, 123)
+  ('Mango Lassi', 'mango-lassi', 'Creamy yogurt drink with mango', 3.49, NULL, '/products/mango-lassi.png', (SELECT id FROM categories WHERE slug = 'beverages'), 'Deep', '16oz', 35, false, false, 4.8, 145)
 ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url;
 
 -- Seed products (Snacks)
@@ -89,7 +78,5 @@ ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url, price = EXCLUDE
 -- Seed products (Meat & Seafood)
 INSERT INTO products (name, slug, description, price, sale_price, image_url, category_id, brand, unit, stock_quantity, is_featured, is_on_sale, rating, review_count) VALUES
   ('Chicken Breast', 'chicken-breast-boneless', 'Boneless skinless chicken breast', 8.99, 6.99, '/images/products/chicken-breast-boneless.png', (SELECT id FROM categories WHERE slug = 'meat-seafood'), 'Perdue', 'lb', 50, true, true, 4.6, 234),
-  ('Ground Beef', 'ground-beef-80-20', '80/20 ground beef, fresh', 6.99, NULL, NULL, (SELECT id FROM categories WHERE slug = 'meat-seafood'), 'Angus', 'lb', 40, false, false, 4.5, 178),
-  ('Atlantic Salmon', 'atlantic-salmon-fillet', 'Fresh Atlantic salmon fillet', 12.99, NULL, '/images/products/atlantic-salmon-fillet.png', (SELECT id FROM categories WHERE slug = 'meat-seafood'), 'Fresh Catch', 'lb', 25, true, false, 4.8, 156),
-  ('Halal Goat', 'halal-goat-meat', 'Halal certified goat meat, bone-in', 9.99, NULL, NULL, (SELECT id FROM categories WHERE slug = 'meat-seafood'), 'Halal Fresh', 'lb', 30, false, false, 4.7, 89)
+  ('Atlantic Salmon', 'atlantic-salmon-fillet', 'Fresh Atlantic salmon fillet', 12.99, NULL, '/images/products/atlantic-salmon-fillet.png', (SELECT id FROM categories WHERE slug = 'meat-seafood'), 'Fresh Catch', 'lb', 25, true, false, 4.8, 156)
 ON CONFLICT (slug) DO UPDATE SET image_url = EXCLUDED.image_url;
