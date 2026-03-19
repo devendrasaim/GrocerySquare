@@ -46,7 +46,7 @@ export const mockDepartments: Record<string, { category: Category; products: Pro
   'meat-seafood': {
     category: mkCat('meat-1', 'Meat & Seafood', 'meat-seafood', 'Premium cuts and sustainable seafood sourced with care.', 3),
     products: [
-      mkProduct('m1', 'Chicken Breast', 'chicken-breast-boneless', 8.99, 6.99, 'meat-1', 50, 'lb', true, true, false, false, true, 4.6, 234, '/products/chicken_breast.png'),
+      mkProduct('m1', 'Chicken Breast', 'chicken-breast-boneless', 8.99, 6.99, 'meat-1', 50, 'lb', true, true, false, false, true, 4.6, 234, null),
       mkProduct('m2', 'Atlantic Salmon Fillet', 'atlantic-salmon-fillet', 12.99, null, 'meat-1', 25, 'lb', true, false, false, false, true, 4.8, 156, '/products/atlantic-salmon-fillet.png'),
     ],
   },
